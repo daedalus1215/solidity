@@ -7,9 +7,9 @@ pragma solidity ^0.4.17;
 */
 contract Lottery {
     address public manager;
+    address[] public players;// create dynamic array that only accepts addresses
 
     function Lottery() public {
         manager = msg.sender; // Grab the sender's address
-
     }
 }
