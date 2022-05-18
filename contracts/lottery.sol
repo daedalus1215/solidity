@@ -12,4 +12,8 @@ contract Lottery {
     function Lottery() public {
         manager = msg.sender; // Grab the sender's address
     }
+
+    function enter() public {
+        
+    }
 }
