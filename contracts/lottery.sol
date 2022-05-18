@@ -13,7 +13,7 @@ contract Lottery {
         manager = msg.sender; // Grab the sender's address
     }
 
-    function enter() public {
-        
+    function enter() public payable {
+        players.push(msg.sender);
     }
 }
