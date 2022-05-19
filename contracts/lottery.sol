@@ -18,7 +18,15 @@ contract Lottery {
         players.push(msg.sender);
     }
 
+    /**
+    * pseudo-random, this random number can be predicted, so it really cannot be trusted.
+    */
     function random() private view returns (uint) {
         return uint(keccak256(block.difficulty, now, players));
+    }
+
+    function pickWinner() public {
+        uint index = random() % players.length;
+        players[index].transfer(this.balance); // take all the money in the lottery and send it to a rando address.
     }
 }
