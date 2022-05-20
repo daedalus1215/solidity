@@ -25,10 +25,15 @@ contract Lottery {
         return uint(keccak256(block.difficulty, now, players));
     }
 
-    function pickWinner() public {
+    function pickWinner() public restricted {
         require(msg.sender == manager);
         uint index = random() % players.length;
         players[index].transfer(this.balance); // take all the money in the lottery and send it to a rando address.
         players = new address[](0); // empty out our list of players with an empty array of addresses.
+    }
+
+    modifier restricted() {
+        require(msg.sender == manager);
+        _;
     }
 }
