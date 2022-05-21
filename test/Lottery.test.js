@@ -81,4 +81,29 @@ describe('Lottery Contract', () => {
             assert(err);
         }
     });
+
+    it('only manager can call pickWinner', async () => {
+        try {
+            await lottery.methods.pickWinner().send({
+                from: accounts[1], // not the manager, this is another account.
+            });
+            assert(false);
+        } catch (err) {
+            assert(err);
+        }
+    });
+
+    it('sends money to the winner and resets the players array', async () => {
+        await lottery.methods.enter().send({
+            from:accounts[0],
+            value: web3.utils.toWei('2', 'ether')
+        });
+
+        const initialBalance = await web3.eth.getBalance(accounts[0]);
+        await lottery.methods.pickWinner().send({from: accounts[0]});
+        const finalBalance = await web3.eth.getBalance(accounts[0]);
+
+        const actual = finalBalance - initialBalance;
+        assert(actual > web3.utils.toWei('1.8', 'ether')); // close to 2, but not 2 because we are paying tx fee.
+    })
 });
