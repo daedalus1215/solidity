@@ -1,2 +1,4 @@
 node_modules/*
 deploy-config.json
+lottery-contract/node_modules/*
+lottery-react/node_modules/*
