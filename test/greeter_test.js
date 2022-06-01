@@ -14,7 +14,7 @@ contract("Greeter", () => {
             const expected = 'Hello World!';
             const actual = await greeter.greet();
 
-            assert.equals(actual, expected, "greeted with 'Hello World!'");
+            assert(actual, expected);
         })
     });
 });
