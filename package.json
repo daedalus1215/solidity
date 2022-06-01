@@ -1,1 +1,16 @@
-{}
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "truffle": "^5.5.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "truffle": "truffle"
+  },
+  "author": "",
+  "license": "ISC"
+}

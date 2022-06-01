@@ -1,5 +1,1 @@
 node_modules/*
-deploy-config.json
-lottery-contract/node_modules/*
-lottery_react/node_modules/*
-lottery-contract/deploy-config.js
