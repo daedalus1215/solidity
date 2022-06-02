@@ -1,10 +1,10 @@
-pragma solidity = 0.8.14;
+pragma solidity =0.8.14;
 
 contract Greeter {
-    string private _greeting = 'Hello World!';
+    string private _greeting = "Hello World!";
     address private _owner;
 
-    function greet() external view returns(string memory) {
+    function greet() external view returns (string memory) {
         return _greeting;
     }
 
@@ -12,7 +12,7 @@ contract Greeter {
         _greeting = greeting;
     }
 
-    function owner() public view returns(address) {
+    function owner() public view returns (address) {
         return _owner;
     }
 }
