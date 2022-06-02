@@ -2,7 +2,7 @@ const { writeContracts } = require("truffle");
 
 const GreeterContract = artifacts.require('../contracts/Greeter');
 
-contract("Greeter", () => {
+contract("Greeter", (accounts) => {
     describe('deploy', () => {
         it('has been deployed successfully', async () => {
             const greeter = await GreeterContract.deployed();
@@ -25,6 +25,13 @@ contract("Greeter", () => {
             const greeter = await GreeterContract.deployed();
             const owner = await greeter.owner();
             assert(owner, "the current owner");
+        });
+        it("matches the address that originally deployed the contract", async () => {
+            const greeter = await GreeterContract.deployed();
+            const owner = await greeter.owner();
+            const expected = accounts[0];
+
+            assert(owner, expected);
         });
     });
 });
