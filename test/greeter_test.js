@@ -52,14 +52,16 @@ contract("Greeter: update greeting", (accounts) => {
         describe('when message is sent by another account', () => {
             it('does not set the greeting', async () => {
                 const greeter = await GreeterContract.deployed();
+
                 const expected = await greeter.greet();
                 try {
                     await greeter.setGreeting("Not the owner", { from: accounts[1] })
-                } catch(err) {
+                } catch (err) {
                     const errorMessage = "Ownable: caller is not the owner"
                     assert(err.reason, errorMessage);
                     return;
                 }
+
                 assert(false, "greeting should not update");
             });
         });
