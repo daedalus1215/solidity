@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "openzeppelin-solidity": "^4.6.0",
     "truffle": "^5.5.15"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "mocha",
     "truffle": "truffle"
